@@ -25,3 +25,54 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+
+  .syltare {
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    z-index: 1;
+  }
+
+  .syltare::after {
+    width: 100%;
+    height: 30vh;
+    content: "";
+    text-align: center;
+    background: url("/syltare_main_logo.png");
+    background-color: rgb(218, 180, 218);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+
+
+  .konkrit {
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    z-index: 1;
+  }
+  .konkrit::after {
+    width: 100%;
+    height: 30vh;
+    content: "";
+    background: url("/main_logo_text.svg");
+    background-color: rgb(193, 183, 183);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
