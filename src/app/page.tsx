@@ -34,22 +34,19 @@ export default function Home() {
         }))
     }
 
-    // useEffect(() => {
-    //     console.log(open)
-    // }, [open])
-    // useEffect(() => {
-    //     console.log(window.ethereum?.isMetaMask)
-    //     console.log(wallet.accounts.length)
-    // }, [])
-
     useEffect(() => {
-        console.log('월렛값변경')
-        console.log(wallet)
-
         if (wallet.accounts.length > 0) {
+            setInputs((prev) => ({
+                ...prev,
+                syltareAddress: wallet.accounts[0],
+            }))
             setOpen(false)
         } else {
             setOpen(true)
+            setInputs((prev) => ({
+                ...prev,
+                syltareAddress: '',
+            }))
         }
     }, [wallet])
 
@@ -72,6 +69,7 @@ export default function Home() {
                                     className="w-full bg-gray-300/80 h-full p-3 focus:outline-none text-gray-800"
                                     type="text"
                                     name="syltareAddress"
+                                    value={inputs.syltareAddress}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -89,6 +87,7 @@ export default function Home() {
                                     type="text"
                                     name="konkritAddress"
                                     onChange={inputHandler}
+                                    value={inputs.konkritAddress}
                                 />
                             </div>
                         </div>
