@@ -218,7 +218,7 @@ export default function Home() {
                             Connect a Wallet
                         </Typography>
                         <Typography color="gray" variant="paragraph" placeholder={undefined}>
-                            Choose which card you want to connect
+                            Connect your wallet to the App.
                         </Typography>
                     </div>
                 </DialogHeader>
