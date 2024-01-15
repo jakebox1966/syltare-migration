@@ -279,10 +279,11 @@ export default function Home() {
                                         className="uppercase"
                                         color="blue-gray"
                                         variant="h6"
-                                        placeholder={undefined}>
-                                        <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
-                                            Connect with MetaMask(M)
-                                        </a>
+                                        placeholder={undefined}
+                                        onClick={connectMetaMask}>
+                                        {/* <a href={process.env.NEXT_PUBLIC_DEEP_LINK}> */}
+                                        Connect with MetaMask(M)
+                                        {/* </a> */}
                                     </Typography>
                                 </MenuItem>
                             )}
