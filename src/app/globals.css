@@ -33,6 +33,7 @@ body {
     height: 30vh;
     position: relative;
     z-index: 1;
+    
   }
 
   .syltare::after {
@@ -59,6 +60,7 @@ body {
     height: 30vh;
     position: relative;
     z-index: 1;
+    
   }
   .konkrit::after {
     width: 100%;
