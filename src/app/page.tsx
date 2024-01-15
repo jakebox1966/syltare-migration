@@ -110,7 +110,7 @@ export default function Home() {
 
             if (finalResponse.ok) {
                 setIsLoading(false)
-                alert('지갑 주소 제출이 완료되었습니다.')
+                // alert('지갑 주소 제출이 완료되었습니다.')
                 router.push('/success')
             }
             setIsLoading(false)
