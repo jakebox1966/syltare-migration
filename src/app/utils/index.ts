@@ -11,3 +11,14 @@ export const formatChainAsNum = (chainIdHex: string) => {
 export const formatAddress = (addr: string) => {
     return `${addr.substring(0, 8)}...`
 }
+
+export const checkMobile = () => {
+    const user = navigator.userAgent
+    let isCheck = false
+
+    if (user.indexOf('iPhone') > -1 || user.indexOf('Android') > -1) {
+        isCheck = true
+    }
+
+    return isCheck
+}

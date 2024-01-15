@@ -16,6 +16,7 @@ import { Alchemy, Network, Wallet } from 'alchemy-sdk'
 import { getNonce, sendAddresses } from './api/api'
 import Loading from './components/Loading'
 import { useRouter } from 'next/navigation'
+import { checkMobile } from './utils'
 
 // Configures the Alchemy SDK
 const config = {
@@ -29,6 +30,7 @@ const alchemy = new Alchemy(config)
 export default function Home() {
     const [open, setOpen] = React.useState(true)
     const [isLoading, setIsLoading] = React.useState(false)
+    const [isMobile, setIsMobile] = React.useState(false)
 
     const [inputs, setInputs] = useState({
         syltareAddress: '',
@@ -39,6 +41,16 @@ export default function Home() {
 
     const syltareRef = useRef<HTMLInputElement>(null)
     const konkritRef = useRef<HTMLInputElement>(null)
+
+    useEffect(() => {
+        const result = checkMobile()
+
+        if (result) {
+            setIsMobile(true)
+            return
+        }
+        setIsMobile(false)
+    }, [])
 
     const handleOpen = () => setOpen((cur) => !cur)
 
@@ -213,7 +225,7 @@ export default function Home() {
                 <DialogBody className="overflow-y-scroll !px-5" placeholder={undefined}>
                     <div className="mb-6">
                         <ul className="mt-3 -ml-2 flex flex-col gap-1">
-                            {wallet.accounts.length < 1 && (
+                            {!isMobile && wallet.accounts.length < 1 && (
                                 <MenuItem
                                     className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
                                     placeholder={undefined}
@@ -233,7 +245,7 @@ export default function Home() {
                                 </MenuItem>
                             )}
 
-                            {!hasProvider && (
+                            {!isMobile && !hasProvider && (
                                 <MenuItem
                                     className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
                                     placeholder={undefined}>
@@ -249,6 +261,27 @@ export default function Home() {
                                         placeholder={undefined}>
                                         <a href="https://metamask.io" target="_blank">
                                             Install MetaMask
+                                        </a>
+                                    </Typography>
+                                </MenuItem>
+                            )}
+
+                            {isMobile && (
+                                <MenuItem
+                                    className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
+                                    placeholder={undefined}>
+                                    <img
+                                        src="https://docs.material-tailwind.com/icons/metamask.svg"
+                                        alt="metamast"
+                                        className="h-6 w-6"
+                                    />
+                                    <Typography
+                                        className="uppercase"
+                                        color="blue-gray"
+                                        variant="h6"
+                                        placeholder={undefined}>
+                                        <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
+                                            Connect with MetaMask123
                                         </a>
                                     </Typography>
                                 </MenuItem>
