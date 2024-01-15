@@ -20,8 +20,8 @@ import { useRouter } from 'next/navigation'
 // Configures the Alchemy SDK
 const config = {
     apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY, // Replace with your API key
-    network: Network.ETH_SEPOLIA, // Replace with your network
-    // network: Network.ETH_MAINNET, // Replace with your network
+    // network: Network.ETH_SEPOLIA, // Replace with your network
+    network: Network.ETH_MAINNET, // Replace with your network
 }
 
 const alchemy = new Alchemy(config)
