@@ -202,11 +202,7 @@ export default function Home() {
                 }}>
                 <DialogHeader className="justify-between" placeholder={undefined}>
                     <div>
-                        <Typography
-                            variant="h5"
-                            color="blue-gray"
-                            placeholder={undefined}
-                            onClick={handleOpen}>
+                        <Typography variant="h5" color="blue-gray" placeholder={undefined}>
                             Connect a Wallet
                         </Typography>
                         <Typography color="gray" variant="paragraph" placeholder={undefined}>
