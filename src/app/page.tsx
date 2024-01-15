@@ -281,7 +281,7 @@ export default function Home() {
                                         variant="h6"
                                         placeholder={undefined}>
                                         <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
-                                            Connect with MetaMask123
+                                            Connect with MetaMask(M)
                                         </a>
                                     </Typography>
                                 </MenuItem>
