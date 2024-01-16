@@ -274,27 +274,6 @@ export default function Home() {
                                 </MenuItem>
                             )}
 
-                            {/* {isMobile && (
-                                <MenuItem
-                                    className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
-                                    placeholder={undefined}>
-                                    <img
-                                        src="https://docs.material-tailwind.com/icons/metamask.svg"
-                                        alt="metamast"
-                                        className="h-6 w-6"
-                                    />
-                                    <Typography
-                                        className="uppercase"
-                                        color="blue-gray"
-                                        variant="h6"
-                                        placeholder={undefined}>
-                                        <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
-                                            Connect with MetaMask(M)
-                                        </a>
-                                    </Typography>
-                                </MenuItem>
-                            )} */}
-
                             {isMobile && !isInApp && (
                                 <MenuItem
                                     className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"

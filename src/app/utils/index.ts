@@ -28,13 +28,21 @@ export const checkIsInApp = () => {
     const user = navigator.userAgent
 
     let isCheck = false
+    alert(`metamask ====> ${navigator.userAgent.indexOf('metamask')}`)
+    alert(`metamask ====> ${navigator.userAgent.indexOf('Metamask')}`)
+    alert(`metamask ====> ${navigator.userAgent.indexOf('METAMASK')}`)
 
     if (
-        navigator.userAgent.indexOf('metamask') ||
-        navigator.userAgent.indexOf('Metamask') ||
-        navigator.userAgent.indexOf('METAMASK')
+        navigator.userAgent.indexOf('metamask') > -1 ||
+        navigator.userAgent.indexOf('Metamask') > -1 ||
+        navigator.userAgent.indexOf('METAMASK') > -1
     ) {
-        alert(123)
+        console.log(navigator.userAgent.indexOf('Metamask'))
+        console.log(navigator.userAgent.indexOf('metamask') > -1)
+        console.log(navigator.userAgent.indexOf('METAMASK') > -1)
+        console.log(navigator.userAgent.indexOf('Metamask') > -1)
+        // alert(navigator.userAgent)
+        // alert(navigator.userAgent.includes(''))
         isCheck = true
     }
     return isCheck
