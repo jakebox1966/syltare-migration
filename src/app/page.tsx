@@ -310,7 +310,7 @@ export default function Home() {
                                         variant="h6"
                                         placeholder={undefined}>
                                         <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
-                                            Connect with MetaMask(M)
+                                            Connect with MetaMask(M1)
                                         </a>
                                     </Typography>
                                 </MenuItem>
@@ -319,7 +319,8 @@ export default function Home() {
                             {isMobile && isInApp && (
                                 <MenuItem
                                     className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
-                                    placeholder={undefined}>
+                                    placeholder={undefined}
+                                    onClick={connectMetaMask}>
                                     <img
                                         src="https://docs.material-tailwind.com/icons/metamask.svg"
                                         alt="metamast"
@@ -329,9 +330,8 @@ export default function Home() {
                                         className="uppercase"
                                         color="blue-gray"
                                         variant="h6"
-                                        placeholder={undefined}
-                                        onClick={connectMetaMask}>
-                                        Connect with MetaMask(M)
+                                        placeholder={undefined}>
+                                        Connect with MetaMask(M2)
                                     </Typography>
                                 </MenuItem>
                             )}
