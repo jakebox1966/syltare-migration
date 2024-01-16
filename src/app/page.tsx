@@ -16,7 +16,7 @@ import { Alchemy, Network, Wallet } from 'alchemy-sdk'
 import { getNonce, sendAddresses } from './api/api'
 import Loading from './components/Loading'
 import { useRouter } from 'next/navigation'
-import { checkMobile } from './utils'
+import { checkIsInApp, checkMobile } from './utils'
 
 // Configures the Alchemy SDK
 const config = {
@@ -31,6 +31,7 @@ export default function Home() {
     const [open, setOpen] = React.useState(true)
     const [isLoading, setIsLoading] = React.useState(false)
     const [isMobile, setIsMobile] = React.useState(false)
+    const [isInApp, setIsInApp] = React.useState(false)
 
     const [inputs, setInputs] = useState({
         syltareAddress: '',
@@ -43,12 +44,19 @@ export default function Home() {
     const konkritRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        const result = checkMobile()
-
-        if (result) {
+        const isMobile = checkMobile()
+        const isInApp = checkIsInApp()
+        if (isMobile) {
             setIsMobile(true)
             return
         }
+
+        if (isInApp) {
+            setIsInApp(true)
+            return
+        }
+
+        setIsInApp(true)
         setIsMobile(false)
     }, [])
 
@@ -279,11 +287,51 @@ export default function Home() {
                                         className="uppercase"
                                         color="blue-gray"
                                         variant="h6"
+                                        placeholder={undefined}>
+                                        <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
+                                            Connect with MetaMask(M)
+                                        </a>
+                                    </Typography>
+                                </MenuItem>
+                            )}
+
+                            {isMobile && !isInApp && (
+                                <MenuItem
+                                    className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
+                                    placeholder={undefined}>
+                                    <img
+                                        src="https://docs.material-tailwind.com/icons/metamask.svg"
+                                        alt="metamast"
+                                        className="h-6 w-6"
+                                    />
+                                    <Typography
+                                        className="uppercase"
+                                        color="blue-gray"
+                                        variant="h6"
+                                        placeholder={undefined}>
+                                        <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
+                                            Connect with MetaMask(M)
+                                        </a>
+                                    </Typography>
+                                </MenuItem>
+                            )}
+
+                            {isMobile && isInApp && (
+                                <MenuItem
+                                    className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
+                                    placeholder={undefined}>
+                                    <img
+                                        src="https://docs.material-tailwind.com/icons/metamask.svg"
+                                        alt="metamast"
+                                        className="h-6 w-6"
+                                    />
+                                    <Typography
+                                        className="uppercase"
+                                        color="blue-gray"
+                                        variant="h6"
                                         placeholder={undefined}
                                         onClick={connectMetaMask}>
-                                        {/* <a href={process.env.NEXT_PUBLIC_DEEP_LINK}> */}
                                         Connect with MetaMask(M)
-                                        {/* </a> */}
                                     </Typography>
                                 </MenuItem>
                             )}

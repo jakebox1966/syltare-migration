@@ -17,13 +17,20 @@ export const checkMobile = () => {
 
     let isCheck = false
 
-    if (navigator.userAgent.indexOf('metamask')) {
-        alert(123)
-    }
-
     if (user.indexOf('iPhone') > -1 || user.indexOf('Android') > -1) {
         isCheck = true
     }
 
+    return isCheck
+}
+
+export const checkIsInApp = () => {
+    const user = navigator.userAgent
+
+    let isCheck = false
+
+    if (navigator.userAgent.indexOf('metamask')) {
+        isCheck = true
+    }
     return isCheck
 }
