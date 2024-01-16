@@ -17,11 +17,7 @@ export const checkMobile = () => {
 
     let isCheck = false
 
-    if (
-        navigator.userAgent.indexOf('METAMASK') ||
-        navigator.userAgent.indexOf('Metamask') ||
-        navigator.userAgent.indexOf('metamask')
-    ) {
+    if (navigator.userAgent.indexOf('metamask')) {
         alert(123)
     }
 
