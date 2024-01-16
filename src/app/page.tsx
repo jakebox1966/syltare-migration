@@ -44,14 +44,14 @@ export default function Home() {
     const konkritRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        const isMobile = checkMobile()
-        const isInApp = checkIsInApp()
-        if (isMobile) {
+        const result1 = checkMobile()
+        const result2 = checkIsInApp()
+        if (result1) {
             setIsMobile(true)
             return
         }
 
-        if (isInApp) {
+        if (result2) {
             alert('this is InApp')
             setIsInApp(true)
             return
