@@ -14,7 +14,16 @@ export const formatAddress = (addr: string) => {
 
 export const checkMobile = () => {
     const user = navigator.userAgent
+
     let isCheck = false
+
+    if (
+        navigator.userAgent.indexOf('METAMASK') ||
+        navigator.userAgent.indexOf('Metamask') ||
+        navigator.userAgent.indexOf('metamask')
+    ) {
+        alert(123)
+    }
 
     if (user.indexOf('iPhone') > -1 || user.indexOf('Android') > -1) {
         isCheck = true
