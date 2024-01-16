@@ -33,10 +33,6 @@ export default function Home() {
     const [isMobile, setIsMobile] = React.useState(false)
     const [isInApp, setIsInApp] = React.useState(false)
 
-    if (navigator.userAgent.indexOf('MetaMaskMobile') > -1) {
-        alert('인앱')
-    }
-
     const [inputs, setInputs] = useState({
         syltareAddress: '',
         konkritAddress: '',
@@ -49,21 +45,19 @@ export default function Home() {
     const konkritRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        const result1 = checkMobile()
+        const isMobile = checkMobile()
         // const result2 = checkIsInApp()
-        if (result1) {
+        if (isMobile) {
             setIsMobile(true)
-            return
+        } else {
+            setIsInApp(false)
         }
 
-        // if (result2) {
-        //     alert('this is InApp')
-        //     setIsInApp(true)
-        //     return
-        // }
-
-        // setIsInApp(false)
-        setIsMobile(false)
+        if (navigator.userAgent.indexOf('MetaMaskMobile') > -1) {
+            setIsInApp(true)
+        } else {
+            setIsInApp(false)
+        }
     }, [])
 
     const handleOpen = () => setOpen((cur) => !cur)
@@ -301,7 +295,7 @@ export default function Home() {
                                 </MenuItem>
                             )}
 
-                            {navigator.userAgent.indexOf('MetaMaskMobile') > -1 && (
+                            {isInApp && (
                                 <MenuItem
                                     className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
                                     placeholder={undefined}
