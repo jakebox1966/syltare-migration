@@ -28,7 +28,7 @@ export const checkIsInApp = () => {
     const user = navigator.userAgent
 
     let isCheck = false
-    alert(`metamask ====> ${navigator.userAgent.indexOf('metamask')}`)
+    alert(`metamask ====> ${navigator.userAgent.indexOf('MetaMaskMobile')}`)
     alert(`metamask ====> ${navigator.userAgent.indexOf('Metamask')}`)
     alert(`metamask ====> ${navigator.userAgent.indexOf('METAMASK')}`)
 
