@@ -53,7 +53,9 @@ export default function Home() {
             setIsInApp(false)
         }
 
-        if (navigator.userAgent.indexOf('MetaMaskMobile') > -1) {
+        const isInApp = checkIsInApp()
+
+        if (isInApp) {
             setIsInApp(true)
         } else {
             setIsInApp(false)
