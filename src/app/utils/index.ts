@@ -29,20 +29,8 @@ export const checkIsInApp = () => {
 
     let isCheck = false
     alert(`metamask ====> ${navigator.userAgent.indexOf('MetaMaskMobile')}`)
-    alert(`metamask ====> ${navigator.userAgent.indexOf('Metamask')}`)
-    alert(`metamask ====> ${navigator.userAgent.indexOf('METAMASK')}`)
 
-    if (
-        navigator.userAgent.indexOf('metamask') > -1 ||
-        navigator.userAgent.indexOf('Metamask') > -1 ||
-        navigator.userAgent.indexOf('METAMASK') > -1
-    ) {
-        console.log(navigator.userAgent.indexOf('Metamask'))
-        console.log(navigator.userAgent.indexOf('metamask') > -1)
-        console.log(navigator.userAgent.indexOf('METAMASK') > -1)
-        console.log(navigator.userAgent.indexOf('Metamask') > -1)
-        // alert(navigator.userAgent)
-        // alert(navigator.userAgent.includes(''))
+    if (navigator.userAgent.indexOf('MetaMaskMobile') > -1) {
         isCheck = true
     }
     return isCheck
