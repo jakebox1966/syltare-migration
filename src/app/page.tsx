@@ -291,7 +291,7 @@ export default function Home() {
                                         variant="h6"
                                         placeholder={undefined}>
                                         <a href={process.env.NEXT_PUBLIC_DEEP_LINK}>
-                                            Connect with MetaMask(M1)
+                                            Connect with MetaMask(Mobile)
                                         </a>
                                     </Typography>
                                 </MenuItem>
@@ -312,7 +312,7 @@ export default function Home() {
                                         color="blue-gray"
                                         variant="h6"
                                         placeholder={undefined}>
-                                        Connect with MetaMask(M2)
+                                        Connect with MetaMask(Mobile)
                                     </Typography>
                                 </MenuItem>
                             )}
