@@ -52,11 +52,12 @@ export default function Home() {
         }
 
         if (isInApp) {
+            alert('this is InApp')
             setIsInApp(true)
             return
         }
 
-        setIsInApp(true)
+        setIsInApp(false)
         setIsMobile(false)
     }, [])
 
