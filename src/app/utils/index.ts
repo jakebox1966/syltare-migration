@@ -31,6 +31,7 @@ export const checkIsInApp = () => {
     alert(`metamask ====> ${navigator.userAgent.indexOf('MetaMaskMobile')}`)
 
     if (navigator.userAgent.indexOf('MetaMaskMobile') > -1) {
+        alert('인앱 입니다.')
         isCheck = true
     }
     return isCheck

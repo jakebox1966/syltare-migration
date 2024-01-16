@@ -295,7 +295,7 @@ export default function Home() {
                                 </MenuItem>
                             )}
 
-                            {isMobile && isInApp && (
+                            {isInApp && (
                                 <MenuItem
                                     className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
                                     placeholder={undefined}
