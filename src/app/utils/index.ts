@@ -34,6 +34,7 @@ export const checkIsInApp = () => {
         navigator.userAgent.indexOf('Metamask') ||
         navigator.userAgent.indexOf('METAMASK')
     ) {
+        alert(123)
         isCheck = true
     }
     return isCheck

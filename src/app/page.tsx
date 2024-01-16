@@ -230,7 +230,7 @@ export default function Home() {
                         </Typography>
                     </div>
                 </DialogHeader>
-                <DialogBody className="overflow-y-scroll !px-5" placeholder={undefined}>
+                <DialogBody className="!overflow-y-auto !px-5" placeholder={undefined}>
                     <div className="mb-6">
                         <ul className="mt-3 -ml-2 flex flex-col gap-1">
                             {!isMobile && wallet.accounts.length < 1 && (
@@ -274,7 +274,7 @@ export default function Home() {
                                 </MenuItem>
                             )}
 
-                            {isMobile && (
+                            {/* {isMobile && (
                                 <MenuItem
                                     className="mb-4 flex items-center justify-center gap-3 !py-4 shadow-md"
                                     placeholder={undefined}>
@@ -293,7 +293,7 @@ export default function Home() {
                                         </a>
                                     </Typography>
                                 </MenuItem>
-                            )}
+                            )} */}
 
                             {isMobile && !isInApp && (
                                 <MenuItem
