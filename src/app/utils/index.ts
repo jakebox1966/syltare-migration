@@ -29,7 +29,11 @@ export const checkIsInApp = () => {
 
     let isCheck = false
 
-    if (navigator.userAgent.indexOf('metamask')) {
+    if (
+        navigator.userAgent.indexOf('metamask') ||
+        navigator.userAgent.indexOf('Metamask') ||
+        navigator.userAgent.indexOf('METAMASK')
+    ) {
         isCheck = true
     }
     return isCheck
