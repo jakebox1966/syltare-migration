@@ -227,6 +227,7 @@ export default function Home() {
                                     ref={syltareRef}
                                     className="w-full bg-gray-300/80 h-full p-3 focus:outline-none text-gray-800"
                                     type="text"
+                                    readOnly
                                     name="syltareAddress"
                                     value={inputs.syltareAddress}
                                     onChange={inputHandler}
