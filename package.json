@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@alch/alchemy-web3": "^1.4.7",
     "@material-tailwind/react": "^2.1.8",
     "@metamask/detect-provider": "^2.0.0",
     "alchemy-sdk": "^3.1.1",

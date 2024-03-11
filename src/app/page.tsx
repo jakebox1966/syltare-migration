@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+
 import React from 'react'
 import {
     Button,
@@ -17,6 +18,7 @@ import { getNonce, sendAddresses } from './api/api'
 import Loading from './components/Loading'
 import { useRouter } from 'next/navigation'
 import { checkIsInApp, checkMobile } from './utils'
+import { createAlchemyWeb3 } from '@alch/alchemy-web3'
 
 // Configures the Alchemy SDK
 const config = {
@@ -24,6 +26,8 @@ const config = {
     // network: Network.ETH_SEPOLIA, // Replace with your network
     network: Network.ETH_MAINNET, // Replace with your network
 }
+
+const web3 = createAlchemyWeb3(process.env.NEXT_PUBLIC_ALCHEMY_API_RAW_KEY as string)
 
 const alchemy = new Alchemy(config)
 
@@ -88,6 +92,11 @@ export default function Home() {
                 konkritRef.current.focus()
             }
             return false
+        } else {
+            if (!web3.utils.isAddress(inputs.konkritAddress)) {
+                alert('유효하지 않은 지갑 주소 입니다.')
+                return false
+            }
         }
         return true
     }
@@ -146,16 +155,13 @@ export default function Home() {
         try {
             setIsLoading(true)
 
-            const result = await alchemy.nft.getNftsForOwner(
-                '0x64BFC01a1cb439CBB7ecD304Bd893bf714DFDa96',
-                {
-                    contractAddresses: [
-                        process.env.NEXT_PUBLIC_SYLTARE_DOWN_OF_EAST as string,
-                        process.env.NEXT_PUBLIC_SYLTARE_MAPAE_OF_EAST as string,
-                    ],
-                    omitMetadata: true,
-                },
-            )
+            const result = await alchemy.nft.getNftsForOwner('', {
+                contractAddresses: [
+                    process.env.NEXT_PUBLIC_SYLTARE_DOWN_OF_EAST as string,
+                    process.env.NEXT_PUBLIC_SYLTARE_MAPAE_OF_EAST as string,
+                ],
+                omitMetadata: true,
+            })
 
             console.log('REsult', result)
 
@@ -263,7 +269,7 @@ export default function Home() {
                     {/* <div
                         className="bg-gray-300/90 p-3 transition-all rounded-full shadow-inner cursor-pointer w-[50%] text-center hover:opacity-90 shadow-white"
                         onClick={submit1}>
-                        <h2 className={`text-normal font-semibold text-white`}>TEST</h2>
+                        <h2 className={`text-normal font-semibold text-white`}>1</h2>
                     </div> */}
                 </div>
             </main>
