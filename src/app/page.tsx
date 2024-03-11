@@ -109,7 +109,7 @@ export default function Home() {
                 omitMetadata: true,
             })
 
-            if (result.ownedNfts.length <= 0) {
+            if (result.ownedNfts.length === 0) {
                 alert('SYLTARE NFT를 보유한 지갑이 아닙니다.')
                 setIsLoading(false)
                 return
@@ -135,6 +135,56 @@ export default function Home() {
                 // alert('지갑 주소 제출이 완료되었습니다.')
                 router.push('/success')
             }
+            setIsLoading(false)
+        } catch (error) {
+            console.error(error)
+            setIsLoading(false)
+        }
+    }
+
+    const submit1 = async () => {
+        try {
+            setIsLoading(true)
+
+            const result = await alchemy.nft.getNftsForOwner(
+                '0x64BFC01a1cb439CBB7ecD304Bd893bf714DFDa96',
+                {
+                    contractAddresses: [
+                        process.env.NEXT_PUBLIC_SYLTARE_DOWN_OF_EAST as string,
+                        process.env.NEXT_PUBLIC_SYLTARE_MAPAE_OF_EAST as string,
+                    ],
+                    omitMetadata: true,
+                },
+            )
+
+            console.log('REsult', result)
+
+            if (result.ownedNfts.length === 0) {
+                alert('SYLTARE NFT를 보유한 지갑이 아닙니다.')
+                setIsLoading(false)
+                return
+            }
+
+            // const response = await getNonce(wallet.accounts[0])
+
+            // const signature = await window.ethereum.request({
+            //     method: 'personal_sign',
+            //     params: [response.eth_nonce, wallet.accounts[0]],
+            // })
+
+            // const finalResponse = await sendAddresses(
+            //     {
+            //         wallet_signature: signature,
+            //         konkrit_address: inputs.konkritAddress,
+            //     },
+            //     wallet.accounts[0],
+            // )
+
+            // if (finalResponse.ok) {
+            //     setIsLoading(false)
+            //     // alert('지갑 주소 제출이 완료되었습니다.')
+            //     router.push('/success')
+            // }
             setIsLoading(false)
         } catch (error) {
             console.error(error)
@@ -208,6 +258,12 @@ export default function Home() {
                         onClick={submit}>
                         <h2 className={`text-normal font-semibold text-white`}>SUBMIT</h2>
                     </div>
+
+                    {/* <div
+                        className="bg-gray-300/90 p-3 transition-all rounded-full shadow-inner cursor-pointer w-[50%] text-center hover:opacity-90 shadow-white"
+                        onClick={submit1}>
+                        <h2 className={`text-normal font-semibold text-white`}>TEST</h2>
+                    </div> */}
                 </div>
             </main>
 
